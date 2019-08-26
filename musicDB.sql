@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS artists;
 
 CREATE TABLE artists (
     artist_name VARCHAR(255) NOT NULL,
-    formation_year INT(4),
+    active_from INT(4),
     PRIMARY KEY(artist_name)
 );
 
