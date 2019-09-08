@@ -5,13 +5,13 @@ import java.util.List;
 public class Artist {
 
 	private String artistName;
-	private int formationYear;
+	private int activeFrom;
 	private List<Album> albums;
 	private List<Song> songs;
 	
-	public Artist(String artistName, int formationYear, List<Album> albums, List<Song> songs) {
+	public Artist(String artistName, int activeFrom, List<Album> albums, List<Song> songs) {
 		this.setArtistName(artistName);
-		this.setFormationYear(formationYear);
+		this.setActiveFrom(activeFrom);
 		this.setAlbums(albums);
 		this.setSongs(songs);
 	}
@@ -24,12 +24,12 @@ public class Artist {
 		this.artistName = artistName;
 	}
 
-	public int getFormationYear() {
-		return formationYear;
+	public int getActiveFrom() {
+		return activeFrom;
 	}
 
-	public void setFormationYear(int formationYear) {
-		this.formationYear = formationYear;
+	public void setActiveFrom(int activeFrom) {
+		this.activeFrom = activeFrom;
 	}
 
 	public List<Album> getAlbums() {
