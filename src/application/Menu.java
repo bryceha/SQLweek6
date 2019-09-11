@@ -18,7 +18,8 @@ public class Menu {
 	private AlbumDao albumD = new AlbumDao();
 	private SongDao songD = new SongDao();
 	private Scanner scanner = new Scanner(System.in);
-//	private List<Artist> artistNames = artistD.getArtists();
+
+	//	private List<Artist> artistNames = artistD.getArtists();
 //	private List<Album> albumIds = albumD.getAlbumId();
 //	private List<Song> songIds = songD.getSongId();
 //	private List<String> albumOptions = Arrays.asList(
@@ -30,6 +31,7 @@ public class Menu {
 //			"song name",
 //			"album ID",
 //			"artist name");
+
 	private List<String> options = Arrays.asList(
 			"Display All Artists",
 			"Enter New Artist",
@@ -54,7 +56,6 @@ public class Menu {
 			selection = scanner.nextLine();
 		
 		try {	
-			
 			if (selection.equals("1")) {
 				displayAllArtists();
 			} else if (selection.equals("2")) {
@@ -82,7 +83,6 @@ public class Menu {
 			} else if (selection.equals("13")) {
 				//updateASong();
 			}
-			
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}

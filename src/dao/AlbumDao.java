@@ -16,11 +16,13 @@ public class AlbumDao {
 	private final String GET_ALBUMS_FROM_ARTIST_QUERY = "SELECT * FROM albums WHERE artist_name = ?";
 	private final String CREATE_NEW_ALBUM_QUERY = "INSERT INTO albums(album_name, release_date, genre, artist_name) VALUES(?, ?, ?, ?)";
 	private final String DELETE_ALBUM_BY_ALBUM_ID_QUERY = "DELETE FROM albums WHERE album_id = ?";
+	
 	public AlbumDao() {
 		connection = DBConnection.getConnection();
 	}
 	
 	public List<Album> getAlbumsByArtistName(String artistName) throws SQLException {
+
 		PreparedStatement ps = connection.prepareStatement(GET_ALBUMS_FROM_ARTIST_QUERY);
 		ps.setString(1, artistName);
 		ResultSet rs = ps.executeQuery();
@@ -31,7 +33,7 @@ public class AlbumDao {
 		}
 		
 		return albums;
-		}
+	}
 		
 	public void createNewAlbum(String albumName, String releaseDate, String genre, String artistName) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(CREATE_NEW_ALBUM_QUERY);
@@ -39,6 +41,7 @@ public class AlbumDao {
 		ps.setString(2, releaseDate);
 		ps.setString(3,  genre);
 		ps.setString(4, artistName);
+
 		ps.executeUpdate();
 	}
 	
@@ -50,6 +53,7 @@ public class AlbumDao {
 	
 	private Album populateAlbum(int albumId, String albumName, String releaseDate, String genre, String artistName) throws SQLException {
 		return new Album(albumId, albumName, releaseDate, genre, artistName, songDao.getSongsByArtistName(artistName));
+
 	}
 
 }

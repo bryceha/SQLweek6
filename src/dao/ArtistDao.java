@@ -17,6 +17,7 @@ public class ArtistDao {
 	private final String DISPLAY_ALL_ARTISTS_QUERY = "SELECT * FROM artists";
 	private final String CREATE_NEW_ARTIST_QUERY = "INSERT INTO artists(artist_name, active_from) VALUES(?, ?)";
 	private final String DELETE_ARTIST_BY_NAME_QUERY = "DELETE FROM artists WHERE artist_name = ?";
+
 	
 	public ArtistDao() {
 		connection = DBConnection.getConnection();
@@ -36,7 +37,7 @@ public class ArtistDao {
 	private Artist populateArtist(String name, int year) throws SQLException {
 		return new Artist(name, year, albumDao.getAlbumsByArtistName(name), songDao.getSongsByArtistName(name));
 	}
-	
+
 	public void createNewArtist(String artistName, int formationYear) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(CREATE_NEW_ARTIST_QUERY);
 		ps.setString(1, artistName);

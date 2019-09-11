@@ -29,7 +29,6 @@ public class SongDao {
 		ps.setString(1, artistName);
 		ResultSet rs = ps.executeQuery();
 		List<Song> songs = new ArrayList<Song>();
-		
 		while (rs.next()) {
 			songs.add(populateSong(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 		}
@@ -77,3 +76,4 @@ public class SongDao {
 		}
 		
 	}
+

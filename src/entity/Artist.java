@@ -9,6 +9,7 @@ public class Artist {
 	private List<Album> albums;
 	private List<Song> songs;
 	
+
 	public Artist(String artistName, int activeFrom, List<Album> albums, List<Song> songs) {
 		this.setArtistName(artistName);
 		this.setActiveFrom(activeFrom);
